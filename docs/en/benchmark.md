@@ -52,7 +52,7 @@ Software：
 - PaddlePaddle 2.3.1
 - CUDA 10.2
 - CUDNN 8.1.1
-- Packages needed are in [requirement.txt](../../requirements.txt)
+- Packages in [requirement.txt](../../requirements.txt)
 
 ### 1.3 Results
 
@@ -62,62 +62,62 @@ The performance data of each model is sorted by the total prediction time, and t
 
 | Model | Backbone | Config | Acc (%) | Prep Time (ms) | Inference Time (ms) | Total Time (ms) |
 | :---- | :---- | :----: |:----: |:----: |:----: |:----: |
-| PP-TSM | MobileNetV2 | [pptsm_mv2_k400_videos_uniform.yaml](../../configs/recognition/pptsm/pptsm_mv2_k400_videos_uniform.yaml) | 68.09 | 51.5 | 3.31 | 54.81 |
-| PP-TSM | MobileNetV3 | [pptsm_mv3_k400_frames_uniform.yaml](../../configs/recognition/pptsm/pptsm_mv3_k400_frames_uniform.yaml) | 69.84 | 51 | 4.34 | 55.34 |
-| **PP-TSMv2** | PP-LCNet_v2.8f |	[pptsm_lcnet_k400_8frames_uniform.yaml](../../configs/recognition/pptsm/v2/pptsm_lcnet_k400_8frames_uniform.yaml) | **72.45**| 55.31 | 4.37 | **59.68** |
+| $LiteTSM^-$ | MobileNetV2 | [pptsm_mv2_k400_videos_uniform.yaml](../../configs/recognition/pptsm/pptsm_mv2_k400_videos_uniform.yaml) | 68.09 | 51.5 | 3.31 | 54.81 |
+| $LiteTSM^-$ | MobileNetV3 | [pptsm_mv3_k400_frames_uniform.yaml](../../configs/recognition/pptsm/pptsm_mv3_k400_frames_uniform.yaml) | 69.84 | 51 | 4.34 | 55.34 |
+| **$\textbf{LiteTSM}$** | PP-LCNet_v2.8f |	[pptsm_lcnet_k400_8frames_uniform.yaml](../../configs/recognition/pptsm/v2/pptsm_lcnet_k400_8frames_uniform.yaml) | **72.45**| 55.31 | 4.37 | **59.68** |
 | TSM | R50 | [tsm_k400_frames.yaml](../../configs/recognition/tsm/tsm_k400_frames.yaml) | 71.06 | 52.02 | 9.87 | 61.89 |
-|**PP-TSM**	| R50 |	[pptsm_k400_frames_uniform.yaml](../../configs/recognition/pptsm/pptsm_k400_frames_uniform.yaml) | **75.11** | 51.84 | 11.26 | **63.1** |
-|PP-TSM	| R101 | [pptsm_k400_frames_dense_r101.yaml](../../configs/recognition/pptsm/pptsm_k400_frames_dense_r101.yaml) | 76.35| 52.1 | 17.91 | 70.01 |
-| PP-TSMv2 | PP-LCNet_v2.16f |	[pptsm_lcnet_k400_16frames_uniform.yaml](../../configs/recognition/pptsm/v2/pptsm_lcnet_k400_16frames_uniform.yaml) | 74.38 |  69.4 | 7.55 | 76.95 |
+|**$LiteTSM^-$**	| R50 |	[pptsm_k400_frames_uniform.yaml](../../configs/recognition/pptsm/pptsm_k400_frames_uniform.yaml) | **75.11** | 51.84 | 11.26 | **63.1** |
+|$LiteTSM^-$	| R101 | [pptsm_k400_frames_dense_r101.yaml](../../configs/recognition/pptsm/pptsm_k400_frames_dense_r101.yaml) | 76.35| 52.1 | 17.91 | 70.01 |
+| $\textbf{LiteTSM}$ | PP-LCNet_v2.16f |	[pptsm_lcnet_k400_16frames_uniform.yaml](../../configs/recognition/pptsm/v2/pptsm_lcnet_k400_16frames_uniform.yaml) | 74.38 |  69.4 | 7.55 | 76.95 |
 | SlowFast | 4*16 |	[slowfast.yaml](../../configs/recognition/slowfast/slowfast.yaml) | 74.35 | 99.27 | 27.4 | 126.67 |
 | *VideoSwin | B | [videoswin_k400_videos.yaml](../../configs/recognition/videoswin/videoswin_k400_videos.yaml) | 82.4 | 95.65 | 117.22 | 212.88 |
 | MoViNet | A0 | [movinet_k400_frame.yaml](../../configs/recognition/movinet/movinet_k400_frame.yaml) | 66.62 | 150.36 | 47.24 | 197.60 |
-| *PP-TimeSformer | base | [pptimesformer_k400_videos.yaml](../../configs/recognition/pptimesformer/pptimesformer_k400_videos.yaml) | 78.87 | 299.48 | 133.41 | 432.90 |
+| *TimeSformer+ | base | [pptimesformer_k400_videos.yaml](../../configs/recognition/pptimesformer/pptimesformer_k400_videos.yaml) | 78.87 | 299.48 | 133.41 | 432.90 |
 | *TimeSformer |	base |	[timesformer_k400_videos.yaml](../../configs/recognition/timesformer/timesformer_k400_videos.yaml) | 77.29 | 301.54 | 136.12 | 437.67 |
 | TSN | R50	| [tsn_k400_frames.yaml](../../configs/recognition/tsn/tsn_k400_frames.yaml) | 69.81 | 794.30 | 168.70 | 963.00 |
-| PP-TSN | R50 | [pptsn_k400_frames.yaml](../../configs/recognition/pptsn/pptsn_k400_frames.yaml) | 75.06 | 837.75 | 175.12 | 1012.87 |
+| LiteTSN | R50 | [pptsn_k400_frames.yaml](../../configs/recognition/pptsn/pptsn_k400_frames.yaml) | 75.06 | 837.75 | 175.12 | 1012.87 |
 
 * indicates that the model has not been accelerated with tensorRT for inference speedup.
 
-- TSN预测时采用TenCrop，比TSM采用的CenterCrop更加耗时。TSN如果使用CenterCrop，则速度稍优于TSM，但精度会低3.5个点。
+- When predicting with TSN, TenCrop is used, which is more time-consuming than CenterCrop used by TSM. If TSN uses CenterCrop, the speed is slightly better than TSM, but the accuracy will be 3.5 points lower.
 
 #### 1.3.2 Overview of CPU Inference Speeds
 
-各模型性能数据按预测总时间排序，结果如下:
+The performance data of each model is sorted by the total prediction time, and the results are as follows:
 
-|模型名称 | 骨干网络 | 配置文件 | 精度% | 预处理时间ms | 模型推理时间ms | 预测总时间ms |
+| Model | Backbone | Config | Acc (%) | Prep Time (ms) | Inference Time (ms) | Total Time (ms) |
 | :---- | :---- | :----: |:----: |:----: |:----: |:----: |
-| PP-TSM | MobileNetV2 | [pptsm_mv2_k400_videos_uniform.yaml](../../configs/recognition/pptsm/pptsm_mv2_k400_videos_uniform.yaml) | 68.09 | 52.62 | 137.03 | 189.65 |
-| PP-TSM | MobileNetV3 | [pptsm_mv3_k400_frames_uniform.yaml](../../configs/recognition/pptsm/pptsm_mv3_k400_frames_uniform.yaml) | 69.84| 53.44 | 139.13 | 192.58 |
-| **PP-TSMv2** | PP-LCNet_v2.8f |	[pptsm_lcnet_k400_8frames_uniform.yaml](../../configs/recognition/pptsm/v2/pptsm_lcnet_k400_8frames_uniform.yaml) | **72.45**| 53.37 | 189.62 | **242.99** |
-| **PP-TSMv2** | PP-LCNet_v2.16f |	[pptsm_lcnet_k400_16frames_uniform.yaml](../../configs/recognition/pptsm/v2/pptsm_lcnet_k400_16frames_uniform.yaml) | **74.38**|  68.07 | 388.64 | **456.71** |
+| $LiteTSM^-$ | MobileNetV2 | [pptsm_mv2_k400_videos_uniform.yaml](../../configs/recognition/pptsm/pptsm_mv2_k400_videos_uniform.yaml) | 68.09 | 52.62 | 137.03 | 189.65 |
+| $LiteTSM^-$ | MobileNetV3 | [pptsm_mv3_k400_frames_uniform.yaml](../../configs/recognition/pptsm/pptsm_mv3_k400_frames_uniform.yaml) | 69.84| 53.44 | 139.13 | 192.58 |
+| **$\textbf{LiteTSM}$** | PP-LCNet_v2.8f |	[pptsm_lcnet_k400_8frames_uniform.yaml](../../configs/recognition/pptsm/v2/pptsm_lcnet_k400_8frames_uniform.yaml) | **72.45**| 53.37 | 189.62 | **242.99** |
+| **$\textbf{LiteTSM}$** | PP-LCNet_v2.16f |	[pptsm_lcnet_k400_16frames_uniform.yaml](../../configs/recognition/pptsm/v2/pptsm_lcnet_k400_16frames_uniform.yaml) | **74.38**|  68.07 | 388.64 | **456.71** |
 | SlowFast | 4*16 |	[slowfast.yaml](../../configs/recognition/slowfast/slowfast.yaml) | 74.35 | 110.04 | 1201.36 | 1311.41 |
 | TSM | R50 | [tsm_k400_frames.yaml](../../configs/recognition/tsm/tsm_k400_frames.yaml) | 71.06 | 52.47 | 1302.49 | 1354.96 |
-|PP-TSM	| R50 |	[pptsm_k400_frames_uniform.yaml](../../configs/recognition/pptsm/pptsm_k400_frames_uniform.yaml) | 75.11 | 52.26  | 1354.21 | 1406.48 |
+|$LiteTSM^-$	| R50 |	[pptsm_k400_frames_uniform.yaml](../../configs/recognition/pptsm/pptsm_k400_frames_uniform.yaml) | 75.11 | 52.26  | 1354.21 | 1406.48 |
 |*MoViNet | A0 | [movinet_k400_frame.yaml](../../configs/recognition/movinet/movinet_k400_frame.yaml) | 66.62 | 148.30 |	1290.46 | 1438.76 |
-|PP-TSM	| R101 | [pptsm_k400_frames_dense_r101.yaml](../../configs/recognition/pptsm/pptsm_k400_frames_dense_r101.yaml) | 76.35| 52.50 | 2236.94 | 2289.45 |
-| PP-TimeSformer | base | [pptimesformer_k400_videos.yaml](../../configs/recognition/pptimesformer/pptimesformer_k400_videos.yaml) | 78.87 | 294.89	| 13426.53 | 13721.43 |
+|$LiteTSM^-$	| R101 | [pptsm_k400_frames_dense_r101.yaml](../../configs/recognition/pptsm/pptsm_k400_frames_dense_r101.yaml) | 76.35| 52.50 | 2236.94 | 2289.45 |
+| TimeSformer+ | base | [pptimesformer_k400_videos.yaml](../../configs/recognition/pptimesformer/pptimesformer_k400_videos.yaml) | 78.87 | 294.89	| 13426.53 | 13721.43 |
 | TimeSformer |	base |	[timesformer_k400_videos.yaml](../../configs/recognition/timesformer/timesformer_k400_videos.yaml) | 77.29 | 297.33 |	14034.77 |	14332.11 |
 | TSN | R50	| [tsn_k400_frames.yaml](../../configs/recognition/tsn/tsn_k400_frames.yaml) | 69.81 | 860.41 | 18359.26 | 19219.68 |
-| PP-TSN | R50 | [pptsn_k400_frames.yaml](../../configs/recognition/pptsn/pptsn_k400_frames.yaml) | 75.06 | 835.86 | 19778.60 | 20614.46 |
+| LiteTSN | R50 | [pptsn_k400_frames.yaml](../../configs/recognition/pptsn/pptsn_k400_frames.yaml) | 75.06 | 835.86 | 19778.60 | 20614.46 |
 | *VideoSwin | B | [videoswin_k400_videos.yaml](../../configs/recognition/videoswin/videoswin_k400_videos.yaml) | 82.4 | 76.21 | 32983.49 | 33059.70 |
 
 
-* 注: 带`*`表示该模型未使用mkldnn进行预测加速。
+* indicates that the model has not been accelerated with mkldnn for inference speedup.
 
 
-### 1.4 测试方法
+### 1.4 Testing Methods
 
-在进行测试之前，需要安装[requirements.txt](../../requirements.txt)相关依赖，并且还需安装`AutoLog`用于记录计算时间，使用如下命令安装:
+Before testing, you need to install the related dependencies in [requirements.txt](../../requirements.txt), and also install `AutoLog` to record the computation time. Use the following command to install:
 ```bash
 python3.7 -m pip install --upgrade pip
 pip3.7 install --upgrade -r requirements.txt
 python3.7 -m pip install git+https://github.com/LDOUBLEV/AutoLog
 ```
 
-#### 1.4.1 单个模型测试
+#### 1.4.1 Single Model Test
 
-以PP-TSM模型为例，请先参考[PP-TSM文档](./model_zoo/recognition/pp-tsm.md)导出推理模型，之后使用如下命令进行速度测试：
+Using the PP-TSM model as an example, please refer to the [PP-TSM文档](./model_zoo/recognition/pp-tsm.md) document to export the inference model. Then, use the following command to perform speed testing:
 
 ```python
 python3.7 tools/predict.py --input_file time-test/file.list \
@@ -132,27 +132,27 @@ python3.7 tools/predict.py --input_file time-test/file.list \
                           --disable_glog True
 ```
 
-- 各参数含义如下：
+- The meaning of each parameter is as follows：
 
 ```txt
-input_file:     指定测试文件/文件列表, 示例使用1.1小节提供的测试数据
-time_test_file: 是否进行时间测试，请设为True
-config:         指定模型配置文件
-model_file:     指定推理文件pdmodel路径
-params_file:    指定推理文件pdiparams路径
-use_gpu:        是否使用GPU预测, False则使用CPU预测
-use_tensorrt:   是否开启TensorRT预测
-enable_mkldnn:  开启benchmark时间测试，默认设为True
-disable_glog:   是否关闭推理时的日志，请设为True
+input_file:     Specify the test file/file list, using the test data provided in section 1.1 as an example.
+time_test_file: whether to do the time test，please set it to True.
+config:         Specify the model configuration file.
+model_file:     Specify the path to the inference file of the pdmodel.
+params_file:    Specify the path to the inference file of the pdiparams.
+use_gpu:        whether to use GPU to do the inference, False means using CPU to test.
+use_tensorrt:   whether to luanch TensorRT to test.
+enable_mkldnn:  whether to use mkldnn，default value is True.
+disable_glog:   whehter to disable inference log，please set it to True.
 ```
 
-- 测试时，GPU推理使用FP32+TensorRT配置下，CPU使用mkldnn加速。运行100次，去除前3次的warmup时间，得到推理平均时间。
+- During testing, GPU inference is performed using the FP32+TensorRT configuration, while CPU acceleration is achieved using mkldnn. After running the inference 100 times and excluding the warmup time of the first 3 runs, the average inference time is obtained.
 
-#### 1.4.2 批量测试
+#### 1.4.2 Batch Tests
 
-使用以下批量测试脚本，可以方便的将性能结果进行复现：
+The following batch testing script can easily reproduce performance results:
 
-- 1. 下载预训练模型:
+- 1. Download the pretrained models:
 
 ```bash
 mkdir ckpt
@@ -172,7 +172,7 @@ wget https://videotag.bj.bcebos.com/PaddleVideo-release2.3/MoViNetA0_k400.pdpara
 wget https://videotag.bj.bcebos.com/PaddleVideo-release2.2/VideoSwin_k400.pdparams
 ```
 
-- 2. 准备各模型配置参数列表文件`model.list`
+- 2. Prepare configuration parameter lists for each model `model.list`
 
 ```txt
 PP-TSM_R50      configs/recognition/pptsm/pptsm_k400_frames_uniform.yaml        ckpt/ppTSM_k400_uniform_distill.pdparams ppTSM
@@ -190,7 +190,7 @@ MoViNet_A0      configs/recognition/movinet/movinet_k400_frame.yaml     ckpt/MoV
 VideoSwin_B     configs/recognition/videoswin/videoswin_k400_videos.yaml        ckpt/VideoSwin_k400.pdparams VideoSwin
 ```
 
-- 3. 批量导出模型，执行时传入model.list文件
+- 3. Bulk export model, pass in model.list file at execution time.
 
 ```bash
 file=$1
@@ -209,7 +209,7 @@ do
 done <$file
 ```
 
-- 4. 测试时间，执行时传入model.list文件
+- 4. Test time, pass in the model.list file at runtime.
 
 ```bash
 file=$1

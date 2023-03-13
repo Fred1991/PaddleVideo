@@ -64,11 +64,11 @@ The performance data of each model is sorted by the total prediction time, and t
 | :---- | :---- | :----: |:----: |:----: |:----: |:----: |
 | $LiteTSM^-$ | MobileNetV2 | [pptsm_mv2_k400_videos_uniform.yaml](../../configs/recognition/pptsm/pptsm_mv2_k400_videos_uniform.yaml) | 68.09 | 51.5 | 3.31 | 54.81 |
 | $LiteTSM^-$ | MobileNetV3 | [pptsm_mv3_k400_frames_uniform.yaml](../../configs/recognition/pptsm/pptsm_mv3_k400_frames_uniform.yaml) | 69.84 | 51 | 4.34 | 55.34 |
-| **$\textbf{LiteTSM}$** | PP-LCNet_v2.8f |	[pptsm_lcnet_k400_8frames_uniform.yaml](../../configs/recognition/pptsm/v2/pptsm_lcnet_k400_8frames_uniform.yaml) | **72.45**| 55.31 | 4.37 | **59.68** |
+| **$\textbf{LiteTSM}$** | LCNet_ext_8f |	[pptsm_lcnet_k400_8frames_uniform.yaml](../../configs/recognition/pptsm/v2/pptsm_lcnet_k400_8frames_uniform.yaml) | **72.45**| 55.31 | 4.37 | **59.68** |
 | TSM | R50 | [tsm_k400_frames.yaml](../../configs/recognition/tsm/tsm_k400_frames.yaml) | 71.06 | 52.02 | 9.87 | 61.89 |
 |**$LiteTSM^-$**	| R50 |	[pptsm_k400_frames_uniform.yaml](../../configs/recognition/pptsm/pptsm_k400_frames_uniform.yaml) | **75.11** | 51.84 | 11.26 | **63.1** |
 |$LiteTSM^-$	| R101 | [pptsm_k400_frames_dense_r101.yaml](../../configs/recognition/pptsm/pptsm_k400_frames_dense_r101.yaml) | 76.35| 52.1 | 17.91 | 70.01 |
-| $\textbf{LiteTSM}$ | PP-LCNet_v2.16f |	[pptsm_lcnet_k400_16frames_uniform.yaml](../../configs/recognition/pptsm/v2/pptsm_lcnet_k400_16frames_uniform.yaml) | 74.38 |  69.4 | 7.55 | 76.95 |
+| $\textbf{LiteTSM}$ | LCNet_ext_16f |	[pptsm_lcnet_k400_16frames_uniform.yaml](../../configs/recognition/pptsm/v2/pptsm_lcnet_k400_16frames_uniform.yaml) | 74.38 |  69.4 | 7.55 | 76.95 |
 | SlowFast | 4*16 |	[slowfast.yaml](../../configs/recognition/slowfast/slowfast.yaml) | 74.35 | 99.27 | 27.4 | 126.67 |
 | *VideoSwin | B | [videoswin_k400_videos.yaml](../../configs/recognition/videoswin/videoswin_k400_videos.yaml) | 82.4 | 95.65 | 117.22 | 212.88 |
 | MoViNet | A0 | [movinet_k400_frame.yaml](../../configs/recognition/movinet/movinet_k400_frame.yaml) | 66.62 | 150.36 | 47.24 | 197.60 |
@@ -89,8 +89,8 @@ The performance data of each model is sorted by the total prediction time, and t
 | :---- | :---- | :----: |:----: |:----: |:----: |:----: |
 | $LiteTSM^-$ | MobileNetV2 | [pptsm_mv2_k400_videos_uniform.yaml](../../configs/recognition/pptsm/pptsm_mv2_k400_videos_uniform.yaml) | 68.09 | 52.62 | 137.03 | 189.65 |
 | $LiteTSM^-$ | MobileNetV3 | [pptsm_mv3_k400_frames_uniform.yaml](../../configs/recognition/pptsm/pptsm_mv3_k400_frames_uniform.yaml) | 69.84| 53.44 | 139.13 | 192.58 |
-| **$\textbf{LiteTSM}$** | PP-LCNet_v2.8f |	[pptsm_lcnet_k400_8frames_uniform.yaml](../../configs/recognition/pptsm/v2/pptsm_lcnet_k400_8frames_uniform.yaml) | **72.45**| 53.37 | 189.62 | **242.99** |
-| **$\textbf{LiteTSM}$** | PP-LCNet_v2.16f |	[pptsm_lcnet_k400_16frames_uniform.yaml](../../configs/recognition/pptsm/v2/pptsm_lcnet_k400_16frames_uniform.yaml) | **74.38**|  68.07 | 388.64 | **456.71** |
+| **$\textbf{LiteTSM}$** | LCNet_ext_8f |	[pptsm_lcnet_k400_8frames_uniform.yaml](../../configs/recognition/pptsm/v2/pptsm_lcnet_k400_8frames_uniform.yaml) | **72.45**| 53.37 | 189.62 | **242.99** |
+| **$\textbf{LiteTSM}$** | LCNet_ext_16f |	[pptsm_lcnet_k400_16frames_uniform.yaml](../../configs/recognition/pptsm/v2/pptsm_lcnet_k400_16frames_uniform.yaml) | **74.38**|  68.07 | 388.64 | **456.71** |
 | SlowFast | 4*16 |	[slowfast.yaml](../../configs/recognition/slowfast/slowfast.yaml) | 74.35 | 110.04 | 1201.36 | 1311.41 |
 | TSM | R50 | [tsm_k400_frames.yaml](../../configs/recognition/tsm/tsm_k400_frames.yaml) | 71.06 | 52.47 | 1302.49 | 1354.96 |
 |$LiteTSM^-$	| R50 |	[pptsm_k400_frames_uniform.yaml](../../configs/recognition/pptsm/pptsm_k400_frames_uniform.yaml) | 75.11 | 52.26  | 1354.21 | 1406.48 |
